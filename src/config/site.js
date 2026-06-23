@@ -16,5 +16,6 @@ export const siteConfig = {
     bn: '৳',
     en: 'BDT',
   },
-  logo: '/logo.svg',
+  // Brand logo collected from the asset directory (public/favicon.svg).
+  logo: '/favicon.svg',
 };
