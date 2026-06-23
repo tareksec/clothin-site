@@ -9,9 +9,10 @@ export const translations = {
     },
     hero: {
       title: 'দুমকি ওড়না ঘর',
+      banner: 'ঐতিহ্য ও আধুনিকতার অনন্য মিশ্রণ — দুমকি ওড়না ঘর',
       subtitle:
         'বাংলাদেশের বিশ্বস্ত ফ্যাশন ডেস্টিনেশন। পাবেন প্রিমিয়াম কোয়ালিটির পোশাক ও আধুনিক ডিজাইনের এক্সক্লুসিভ কালেকশন।',
-      cta: 'কালেকশন দেখুন',
+      cta: 'সংগ্রহ দেখুন',
     },
     features: {
       heading: 'কেন আমরা',
@@ -24,6 +25,7 @@ export const translations = {
     productsSection: {
       heading: 'আমাদের পণ্য সমূহ',
       subheading: 'এলিগ্যান্ট ডিজাইনের এক্সক্লুসিভ কালেকশন',
+      empty: 'নতুন কালেকশন শীঘ্রই আসছে',
     },
     product: {
       order: 'হোয়াটসঅ্যাপে অর্ডার করুন',
@@ -54,6 +56,7 @@ export const translations = {
     },
     hero: {
       title: 'Dumki Orna Ghor',
+      banner: 'A unique blend of tradition and modernity — Dumki Orna Ghor',
       subtitle:
         "Bangladesh's trusted fashion destination. Premium quality clothing and an exclusive collection of modern designs.",
       cta: 'View Collection',
@@ -69,6 +72,7 @@ export const translations = {
     productsSection: {
       heading: 'Our Products',
       subheading: 'Exclusive collection of elegant designs',
+      empty: 'New collection coming soon',
     },
     product: {
       order: 'Order via WhatsApp',
