@@ -5,9 +5,14 @@ import CategoryStrip from '@/components/CategoryStrip';
 import ProductGrid from '@/components/ProductGrid';
 import Footer from '@/components/Footer';
 import MobileActionBar from '@/components/MobileActionBar';
-import { products } from '@/data/products';
+import { getProducts } from '@/lib/products';
 
-export default function Home() {
+// Revalidate the live Sanity data periodically (ISR).
+export const revalidate = 60;
+
+export default async function Home() {
+  const products = await getProducts();
+
   return (
     <>
       <Navbar />
