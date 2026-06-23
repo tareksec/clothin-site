@@ -43,14 +43,14 @@ export default function ProductModal({ product, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-end justify-center bg-black/60 backdrop-blur-sm sm:items-center"
+      className="fixed inset-0 z-50 flex items-end justify-center bg-ink/50 backdrop-blur-sm animate-fade-in sm:items-center sm:p-4"
       role="dialog"
       aria-modal="true"
       aria-label={title}
       onClick={onClose}
     >
       <div
-        className="relative flex max-h-[92vh] w-full max-w-4xl flex-col overflow-hidden rounded-t-3xl bg-white shadow-2xl sm:max-h-[88vh] sm:rounded-3xl md:flex-row"
+        className="relative flex max-h-[92vh] w-full max-w-4xl flex-col overflow-hidden rounded-t-3xl bg-canvas shadow-2xl animate-slide-up sm:max-h-[88vh] sm:rounded-3xl sm:animate-scale-in md:flex-row"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
@@ -58,7 +58,7 @@ export default function ProductModal({ product, onClose }) {
           type="button"
           onClick={onClose}
           aria-label={t.product.close}
-          className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-md transition-colors hover:bg-white hover:text-brand"
+          className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-canvas/90 text-ink shadow-md backdrop-blur transition-colors hover:bg-canvas hover:text-brand"
         >
           <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -66,7 +66,7 @@ export default function ProductModal({ product, onClose }) {
         </button>
 
         {/* Image — 100% on mobile, 50% on desktop */}
-        <div className="relative w-full shrink-0 overflow-hidden bg-gray-100 md:w-1/2">
+        <div className="relative w-full shrink-0 overflow-hidden bg-brand-light md:w-1/2">
           <button
             type="button"
             onClick={() => setZoomed((v) => !v)}
@@ -91,21 +91,22 @@ export default function ProductModal({ product, onClose }) {
 
         {/* Details */}
         <div className="flex min-h-0 flex-1 flex-col">
-          <div className="flex-1 overflow-y-auto p-5 sm:p-7">
-            <h2 className="text-xl font-bold leading-snug text-brand-dark sm:text-2xl">
+          <div className="flex-1 overflow-y-auto p-6 sm:p-8">
+            <h2 className="text-2xl font-bold leading-snug tracking-tight text-ink sm:text-3xl">
               {title}
             </h2>
-            <div className="mt-3 flex items-baseline gap-2">
-              <span className="text-2xl font-bold text-brand sm:text-3xl">
-                {currency} {product.price}
+            <div className="mt-3 flex items-baseline gap-1.5">
+              <span className="text-sm font-medium uppercase tracking-wide text-ink/40">{currency}</span>
+              <span className="text-2xl font-semibold tracking-tight text-brand sm:text-3xl">
+                {Number(product.price).toLocaleString(lang === 'bn' ? 'bn-BD' : 'en-US')}
               </span>
             </div>
 
-            <div className="mt-5">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+            <div className="mt-6">
+              <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-ink/40">
                 {t.product.details}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-gray-700 sm:text-base">
+              <p className="mt-2 text-sm leading-relaxed text-ink/70 sm:text-base">
                 {description}
               </p>
             </div>
@@ -123,7 +124,7 @@ export default function ProductModal({ product, onClose }) {
           </div>
 
           {/* Sticky-on-mobile order action */}
-          <div className="sticky bottom-0 border-t border-gray-100 bg-white/95 p-4 backdrop-blur sm:p-5">
+          <div className="sticky bottom-0 border-t border-black/5 bg-canvas/95 p-4 backdrop-blur sm:p-5">
             <a
               href={orderUrl}
               target="_blank"

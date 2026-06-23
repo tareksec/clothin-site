@@ -11,12 +11,12 @@ export default function Footer() {
   const badges = [t.badges.elegant, t.badges.fast, t.badges.quality];
 
   return (
-    <footer id="contact" className="border-t border-gray-100 bg-brand-dark text-white">
-      <div className="container-narrow grid grid-cols-1 gap-10 py-12 sm:grid-cols-2 md:grid-cols-3">
+    <footer id="contact" className="bg-ink text-canvas">
+      <div className="container-narrow grid grid-cols-1 gap-10 py-16 sm:grid-cols-2 md:grid-cols-3 md:py-20">
         {/* Brand story */}
         <div>
-          <h3 className="text-lg font-bold">{siteConfig.brand[lang]}</h3>
-          <p className="mt-3 text-sm leading-relaxed text-white/70">{t.footer.aboutText}</p>
+          <h3 className="text-lg font-bold tracking-wide">{siteConfig.brand[lang]}</h3>
+          <p className="mt-4 text-sm leading-relaxed text-white/60">{t.footer.aboutText}</p>
           <div className="mt-4 flex flex-wrap gap-2">
             {badges.map((b) => (
               <span key={b} className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/80">
@@ -28,7 +28,7 @@ export default function Footer() {
 
         {/* Quick links */}
         <div>
-          <h4 className="text-sm font-semibold uppercase tracking-wider text-white/90">
+          <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/90">
             {t.footer.quickLinks}
           </h4>
           <ul className="mt-3 space-y-2 text-sm text-white/70">
@@ -41,7 +41,7 @@ export default function Footer() {
 
         {/* Customer support */}
         <div>
-          <h4 className="text-sm font-semibold uppercase tracking-wider text-white/90">
+          <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/90">
             {t.footer.contact}
           </h4>
           <ul className="mt-3 space-y-2 text-sm text-white/70">

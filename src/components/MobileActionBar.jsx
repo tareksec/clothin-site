@@ -9,7 +9,7 @@ export default function MobileActionBar() {
   const waUrl = `https://wa.me/${siteConfig.whatsappNumber}`;
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-gray-100 bg-white/95 px-4 py-2.5 backdrop-blur md:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-black/5 bg-canvas/95 px-4 py-2.5 backdrop-blur md:hidden">
       <div className="flex items-center gap-2">
         <a
           href="/#products"

@@ -12,39 +12,39 @@ export default function HowToOrderContent() {
     <div className="pb-8">
       {/* Header */}
       <section className="bg-brand-light/60">
-        <div className="container-narrow py-14 text-center md:py-20">
-          <p className="text-xs font-medium uppercase tracking-[0.3em] text-brand-accent">
+        <div className="container-narrow py-16 text-center md:py-24">
+          <p className="text-xs font-medium uppercase tracking-[0.35em] text-brand">
             {h.eyebrow}
           </p>
-          <h1 className="mt-3 text-3xl font-bold text-brand-dark md:text-4xl text-balance">
+          <h1 className="mt-3 text-4xl font-bold tracking-tight text-ink md:text-5xl text-balance">
             {h.title}
           </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-gray-600 sm:text-base text-pretty">
+          <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-ink/60 sm:text-base text-pretty">
             {h.intro}
           </p>
         </div>
       </section>
 
       {/* Timeline steps */}
-      <section className="container-narrow py-12 md:py-16">
+      <section className="container-narrow py-20 md:py-24">
         <ol className="relative mx-auto max-w-2xl border-l-2 border-brand/20 pl-8">
           {h.steps.map((step, i) => (
-            <li key={step.title} className="relative mb-8 last:mb-0">
+            <li key={step.title} className="relative mb-9 last:mb-0">
               <span className="absolute -left-[41px] flex h-8 w-8 items-center justify-center rounded-full bg-brand text-sm font-bold text-white shadow-md">
                 {i + 1}
               </span>
-              <h3 className="text-base font-semibold text-brand-dark sm:text-lg">{step.title}</h3>
-              <p className="mt-1 text-sm leading-relaxed text-gray-600">{step.text}</p>
+              <h3 className="text-base font-semibold tracking-wide text-ink sm:text-lg">{step.title}</h3>
+              <p className="mt-1 text-sm leading-relaxed text-ink/60">{step.text}</p>
             </li>
           ))}
         </ol>
       </section>
 
       {/* Payment + Delivery */}
-      <section className="container-narrow grid grid-cols-1 gap-6 pb-12 md:grid-cols-2 md:pb-16">
+      <section className="container-narrow grid grid-cols-1 gap-6 pb-20 md:grid-cols-2 md:pb-24">
         {/* Payment */}
-        <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-          <h2 className="text-lg font-bold text-brand-dark">{h.paymentTitle}</h2>
+        <div className="rounded-2xl border border-black/5 bg-white p-7">
+          <h2 className="text-lg font-bold tracking-wide text-ink">{h.paymentTitle}</h2>
           <ul className="mt-4 space-y-3">
             {h.payment.map((p) => (
               <li
@@ -52,16 +52,16 @@ export default function HowToOrderContent() {
                 className="flex items-center justify-between rounded-xl bg-brand-light/50 px-4 py-3"
               >
                 <span className="text-sm font-semibold text-brand">{p.name}</span>
-                <span className="text-xs text-gray-500">{p.detail}</span>
+                <span className="text-xs text-ink/50">{p.detail}</span>
               </li>
             ))}
           </ul>
         </div>
 
         {/* Delivery */}
-        <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-          <h2 className="text-lg font-bold text-brand-dark">{h.deliveryTitle}</h2>
-          <div className="mt-4 overflow-hidden rounded-xl border border-gray-100">
+        <div className="rounded-2xl border border-black/5 bg-white p-7">
+          <h2 className="text-lg font-bold tracking-wide text-ink">{h.deliveryTitle}</h2>
+          <div className="mt-4 overflow-hidden rounded-xl border border-black/5">
             <table className="w-full text-left text-sm">
               <thead className="bg-brand-light/60 text-xs uppercase tracking-wider text-brand">
                 <tr>
@@ -70,7 +70,7 @@ export default function HowToOrderContent() {
                   <th className="px-4 py-2.5 font-semibold">{h.tableCharge}</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-100 text-gray-600">
+              <tbody className="divide-y divide-black/5 text-ink/65">
                 {h.delivery.map((d) => (
                   <tr key={d.area}>
                     <td className="px-4 py-2.5">{d.area}</td>

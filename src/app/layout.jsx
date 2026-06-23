@@ -19,15 +19,15 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: '#7c3a52',
+  themeColor: '#8C2D38',
   width: 'device-width',
   initialScale: 1,
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="bn">
-      <body className="font-bangla">
+    <html lang="bn" className="bg-canvas">
+      <body className="bg-canvas font-bangla text-ink">
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>

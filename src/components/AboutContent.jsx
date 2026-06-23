@@ -15,22 +15,22 @@ export default function AboutContent() {
     <div className="pb-8">
       {/* Header */}
       <section className="bg-brand-light/60">
-        <div className="container-narrow py-14 text-center md:py-20">
-          <p className="text-xs font-medium uppercase tracking-[0.3em] text-brand-accent">
+        <div className="container-narrow py-16 text-center md:py-24">
+          <p className="text-xs font-medium uppercase tracking-[0.35em] text-brand">
             {a.eyebrow}
           </p>
-          <h1 className="mt-3 text-3xl font-bold text-brand-dark md:text-4xl text-balance">
+          <h1 className="mt-3 text-4xl font-bold tracking-tight text-ink md:text-5xl text-balance">
             {a.title}
           </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-gray-600 sm:text-base text-pretty">
+          <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-ink/60 sm:text-base text-pretty">
             {a.intro}
           </p>
         </div>
       </section>
 
       {/* Story */}
-      <section className="container-narrow grid grid-cols-1 items-center gap-8 py-12 md:grid-cols-2 md:py-16">
-        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl bg-gray-100">
+      <section className="container-narrow grid grid-cols-1 items-center gap-10 py-20 md:grid-cols-2 md:py-24">
+        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-brand-light shadow-xl shadow-ink/10">
           <Image
             src={ABOUT_IMAGE}
             alt={a.title}
@@ -41,22 +41,22 @@ export default function AboutContent() {
           />
         </div>
         <div>
-          <h2 className="text-2xl font-bold text-brand-dark md:text-3xl">{a.storyTitle}</h2>
-          <p className="mt-4 text-sm leading-relaxed text-gray-600 sm:text-base text-pretty">
+          <h2 className="text-3xl font-bold tracking-tight text-ink md:text-4xl">{a.storyTitle}</h2>
+          <p className="mt-4 text-sm leading-relaxed text-ink/60 sm:text-base text-pretty">
             {a.storyText}
           </p>
         </div>
       </section>
 
       {/* Values */}
-      <section className="container-narrow grid grid-cols-1 gap-5 pb-12 sm:grid-cols-3 md:pb-16">
+      <section className="container-narrow grid grid-cols-1 gap-6 pb-20 sm:grid-cols-3 md:pb-24">
         {a.values.map((v) => (
           <div
             key={v.title}
-            className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm"
+            className="rounded-2xl border border-black/5 bg-white p-7 transition-transform duration-300 hover:-translate-y-1"
           >
-            <h3 className="text-base font-semibold text-brand">{v.title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-gray-600">{v.text}</p>
+            <h3 className="text-base font-semibold uppercase tracking-wide text-brand">{v.title}</h3>
+            <p className="mt-3 text-sm leading-relaxed text-ink/60">{v.text}</p>
           </div>
         ))}
       </section>
