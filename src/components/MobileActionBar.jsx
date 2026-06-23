@@ -12,7 +12,7 @@ export default function MobileActionBar() {
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-gray-100 bg-white/95 px-4 py-2.5 backdrop-blur md:hidden">
       <div className="flex items-center gap-2">
         <a
-          href="#products"
+          href="/#products"
           className="flex-1 rounded-full border border-brand px-4 py-2.5 text-center text-sm font-medium text-brand"
         >
           {t.nav.products}

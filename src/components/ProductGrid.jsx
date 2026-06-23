@@ -1,11 +1,14 @@
 'use client';
 
+import { useState } from 'react';
 import { useLanguage } from '@/i18n/LanguageProvider';
 import ProductCard from './ProductCard';
 import ProductCardPlaceholder from './ProductCardPlaceholder';
+import ProductModal from './ProductModal';
 
 export default function ProductGrid({ products }) {
   const { t } = useLanguage();
+  const [selected, setSelected] = useState(null);
   const hasProducts = Array.isArray(products) && products.length > 0;
 
   return (
@@ -23,13 +26,19 @@ export default function ProductGrid({ products }) {
         <div className="grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:grid-cols-4">
           {hasProducts
             ? products.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  onSelect={setSelected}
+                />
               ))
             : Array.from({ length: 4 }).map((_, i) => (
                 <ProductCardPlaceholder key={`placeholder-${i}`} index={i} />
               ))}
         </div>
       </div>
+
+      <ProductModal product={selected} onClose={() => setSelected(null)} />
     </section>
   );
 }

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useLanguage } from '@/i18n/LanguageProvider';
 import { siteConfig } from '@/config/site';
 
@@ -11,10 +12,11 @@ export default function Footer() {
 
   return (
     <footer id="contact" className="border-t border-gray-100 bg-brand-dark text-white">
-      <div className="container-narrow grid grid-cols-1 gap-8 py-12 md:grid-cols-3">
+      <div className="container-narrow grid grid-cols-1 gap-10 py-12 sm:grid-cols-2 md:grid-cols-3">
+        {/* Brand story */}
         <div>
           <h3 className="text-lg font-bold">{siteConfig.brand[lang]}</h3>
-          <p className="mt-3 text-sm text-white/70">{t.footer.aboutText}</p>
+          <p className="mt-3 text-sm leading-relaxed text-white/70">{t.footer.aboutText}</p>
           <div className="mt-4 flex flex-wrap gap-2">
             {badges.map((b) => (
               <span key={b} className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/80">
@@ -24,17 +26,20 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Quick links */}
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-wider text-white/90">
             {t.footer.quickLinks}
           </h4>
           <ul className="mt-3 space-y-2 text-sm text-white/70">
-            <li><a href="#home" className="hover:text-white">{t.nav.home}</a></li>
-            <li><a href="#products" className="hover:text-white">{t.nav.products}</a></li>
-            <li><a href="#categories" className="hover:text-white">{t.nav.categories}</a></li>
+            <li><Link href="/" className="hover:text-white">{t.nav.home}</Link></li>
+            <li><Link href="/#products" className="hover:text-white">{t.nav.products}</Link></li>
+            <li><Link href="/about" className="hover:text-white">{t.nav.about}</Link></li>
+            <li><Link href="/how-to-order" className="hover:text-white">{t.nav.howToOrder}</Link></li>
           </ul>
         </div>
 
+        {/* Customer support */}
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-wider text-white/90">
             {t.footer.contact}

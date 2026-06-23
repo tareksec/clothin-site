@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useLanguage } from '@/i18n/LanguageProvider';
 import { siteConfig } from '@/config/site';
 import LanguageToggle from './LanguageToggle';
@@ -11,16 +12,16 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   const links = [
-    { href: '#home', label: t.nav.home },
-    { href: '#products', label: t.nav.products },
-    { href: '#categories', label: t.nav.categories },
-    { href: '#contact', label: t.nav.contact },
+    { href: '/', label: t.nav.home },
+    { href: '/#products', label: t.nav.products },
+    { href: '/about', label: t.nav.about },
+    { href: '/how-to-order', label: t.nav.howToOrder },
   ];
 
   return (
-    <header className="sticky top-0 z-40 border-b border-gray-100 bg-white/90 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-gray-100 bg-white/80 backdrop-blur-md">
       <nav className="container-narrow flex h-16 items-center justify-between">
-        <a href="#home" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
           <Image
             src={siteConfig.logo}
             alt={siteConfig.brand[lang]}
@@ -31,17 +32,17 @@ export default function Navbar() {
           <span className="text-lg font-bold tracking-tight text-brand">
             {siteConfig.brand[lang]}
           </span>
-        </a>
+        </Link>
 
         <ul className="hidden items-center gap-8 md:flex">
           {links.map((link) => (
             <li key={link.href}>
-              <a
+              <Link
                 href={link.href}
                 className="text-sm font-medium text-gray-600 transition-colors hover:text-brand"
               >
                 {link.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -52,6 +53,7 @@ export default function Navbar() {
             type="button"
             className="md:hidden"
             aria-label="Menu"
+            aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
           >
             <svg className="h-6 w-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -65,13 +67,13 @@ export default function Navbar() {
         <ul className="container-narrow flex flex-col gap-1 pb-4 md:hidden">
           {links.map((link) => (
             <li key={link.href}>
-              <a
+              <Link
                 href={link.href}
                 onClick={() => setOpen(false)}
                 className="block rounded-lg px-3 py-2 text-sm font-medium text-gray-700 hover:bg-brand-light hover:text-brand"
               >
                 {link.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

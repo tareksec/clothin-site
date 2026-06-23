@@ -5,7 +5,7 @@ import { useLanguage } from '@/i18n/LanguageProvider';
 import { siteConfig } from '@/config/site';
 import { buildWhatsAppOrderUrl } from '@/lib/whatsapp';
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, onSelect }) {
   const { lang, t } = useLanguage();
 
   const title = lang === 'bn' ? product.title_bn : product.title_en;
@@ -14,9 +14,16 @@ export default function ProductCard({ product }) {
 
   const orderUrl = buildWhatsAppOrderUrl(product, lang);
 
+  const open = () => onSelect?.(product);
+
   return (
     <article className="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-shadow hover:shadow-md">
-      <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100">
+      <button
+        type="button"
+        onClick={open}
+        aria-label={`${title} — ${t.product.viewDetails}`}
+        className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100 text-left"
+      >
         <Image
           src={product.imageUrl}
           alt={title}
@@ -25,11 +32,16 @@ export default function ProductCard({ product }) {
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
-      </div>
+        <span className="absolute inset-x-0 bottom-0 flex items-center justify-center bg-gradient-to-t from-black/55 to-transparent py-3 text-xs font-medium text-white opacity-0 transition-opacity group-hover:opacity-100">
+          {t.product.viewDetails}
+        </span>
+      </button>
       <div className="flex flex-1 flex-col p-3 sm:p-4">
-        <h3 className="line-clamp-2 text-sm font-semibold text-gray-800 sm:text-base">
-          {title}
-        </h3>
+        <button type="button" onClick={open} className="text-left">
+          <h3 className="line-clamp-2 text-sm font-semibold text-gray-800 transition-colors hover:text-brand sm:text-base">
+            {title}
+          </h3>
+        </button>
         <p className="mt-1 line-clamp-2 text-xs text-gray-500">{description}</p>
         <div className="mt-2 flex items-baseline gap-1">
           <span className="text-lg font-bold text-brand">
