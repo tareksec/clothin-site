@@ -12,18 +12,21 @@ export default function ProductGrid({ products }) {
   const hasProducts = Array.isArray(products) && products.length > 0;
 
   return (
-    <section id="products" className="py-12 md:py-16">
+    <section id="products" className="bg-canvas py-20 md:py-24">
       <div className="container-narrow">
-        <div className="mb-8 text-center">
-          <h2 className="text-2xl font-bold text-brand-dark md:text-3xl">
+        <div className="mb-12 text-center">
+          <p className="mb-3 text-xs font-medium uppercase tracking-[0.35em] text-brand">
+            {t.badges.quality}
+          </p>
+          <h2 className="text-balance text-3xl font-bold tracking-tight text-ink md:text-4xl">
             {t.productsSection.heading}
           </h2>
-          <p className="mt-2 text-sm text-gray-500">
+          <p className="mx-auto mt-3 max-w-md text-pretty text-sm text-ink/55">
             {hasProducts ? t.productsSection.subheading : t.productsSection.empty}
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-6 sm:gap-y-10 md:grid-cols-3 lg:grid-cols-4">
           {hasProducts
             ? products.map((product) => (
                 <ProductCard

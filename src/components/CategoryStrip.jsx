@@ -6,17 +6,17 @@ import { categories } from '@/data/categories';
 export default function CategoryStrip() {
   const { lang, t } = useLanguage();
   return (
-    <section id="categories" className="bg-gray-50 py-12 md:py-16">
+    <section id="categories" className="bg-canvas py-20 md:py-24">
       <div className="container-narrow">
-        <h2 className="mb-8 text-center text-2xl font-bold text-brand-dark md:text-3xl">
+        <h2 className="mb-10 text-center text-3xl font-bold tracking-tight text-ink md:text-4xl">
           {t.nav.categories}
         </h2>
-        <div className="flex flex-wrap justify-center gap-2.5">
+        <div className="flex flex-wrap justify-center gap-3">
           {categories.map((cat) => (
             <a
               key={cat.id}
               href="#products"
-              className="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:border-brand hover:bg-brand hover:text-white"
+              className="rounded-full border border-ink/15 bg-transparent px-5 py-2.5 text-sm font-medium uppercase tracking-wide text-ink/70 transition-all duration-300 hover:border-ink hover:bg-ink hover:text-canvas"
             >
               {lang === 'bn' ? cat.bn : cat.en}
             </a>

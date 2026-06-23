@@ -8,7 +8,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: #faf9f6;
   --foreground: #1a1a1a;
 }
 
@@ -34,5 +34,27 @@ body.font-bangla {
   }
   .btn-whatsapp {
     @apply inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#1da851] focus:outline-none focus:ring-2 focus:ring-[#25D366]/50;
+  }
+  /* Sleek minimal block button with smooth invert on hover */
+  .btn-ink {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink bg-ink px-8 py-3.5 text-sm font-medium uppercase tracking-wide text-canvas transition-all duration-300 hover:bg-transparent hover:text-ink focus:outline-none focus:ring-2 focus:ring-ink/30;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink bg-transparent px-8 py-3.5 text-sm font-medium uppercase tracking-wide text-ink transition-all duration-300 hover:bg-ink hover:text-canvas focus:outline-none focus:ring-2 focus:ring-ink/30;
+  }
+}
+
+@layer utilities {
+  /* Animated underline for navigation links */
+  .nav-underline {
+    @apply relative;
+  }
+  .nav-underline::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 h-px w-0 bg-current transition-all duration-300 ease-out;
+  }
+  .nav-underline:hover::after,
+  .nav-underline[data-active='true']::after {
+    @apply w-full;
   }
 }
