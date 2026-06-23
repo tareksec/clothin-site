@@ -1,0 +1,38 @@
+/* Import SolaimanLipi for Bangla typography */
+@import url('https://banglawebfonts.pages.dev/font/solaiman-lipi/solaiman-lipi.css');
+/* Modern sans-serif for English */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Default to Bangla font since default language is Bangla */
+body.font-bangla {
+  font-family: 'SolaimanLipi', sans-serif;
+}
+
+@layer components {
+  .container-narrow {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .btn-whatsapp {
+    @apply inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#1da851] focus:outline-none focus:ring-2 focus:ring-[#25D366]/50;
+  }
+}
